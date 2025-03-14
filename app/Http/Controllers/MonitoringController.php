@@ -35,7 +35,7 @@ class MonitoringController extends Controller
 
         $monitoring = Monitoring::create($request->all());
         if($request->hasFile('image')){
-            $request->file('image')->move('images/', $request->file('images', $request->file('image'))->getClientOriginalName());
+            $request->file('image')->move('\images', $request->file('image')->getClientOriginalName());
             $monitoring->image = $request->file('image')->getClientOriginalName();
             $monitoring->save();
         }
